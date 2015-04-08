@@ -27,7 +27,7 @@ Nm=size(watermark_object,2);            %Width
 % title the watermark_object object out to cover object size to generate watermark
 for ii = 1:Mc
     for jj = 1:Nc
-        watermark(ii,jj)=bitget(watermark_object(ii,jj));
+        watermark(ii,jj)=bitget(watermark_object(ii,jj),8);
     end
 end
 
