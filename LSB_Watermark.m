@@ -29,7 +29,7 @@ Nm=size(message,2);	        %Width
 % title the message object out to cover object size to generate watermark
 for ii = 1:Mc
     for jj = 1:Nc
-        watermark(ii,jj)=message(mod(ii,Mm)+1,mod(jj,Nm)+1);
+        watermark(ii,jj)=bitget(message(ii,jj));
     end
 end
 
