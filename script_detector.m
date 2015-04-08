@@ -39,7 +39,7 @@ end
 watermark=256*double(watermark);
 
 % check the difference of the original watermark and the extracted one
-d=corr2(watermark_original, watermark);
+d=corr2(watermark_original,watermark);
 
 display(d);
 
