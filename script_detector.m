@@ -17,7 +17,7 @@ Nw=size(watermark_object,2);    %Width
 % use lsb of watermarked image to recover watermark
 for ii = 1:Mw
     for jj = 1:Nw
-        watermark_original(ii,jj)=bitget(watermark_object(ii,jj));
+        watermark_original(ii,jj)=bitget(watermark_object(ii,jj),8);
     end
 end
 
