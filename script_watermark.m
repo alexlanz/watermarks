@@ -27,7 +27,7 @@ Nm=size(watermark_object,2);            %Width
 % title the watermark_object object out to cover object size to generate watermark
 for ii = 1:Mc
     for jj = 1:Nc
-        watermark(ii,jj)=watermark_object(mod(ii,Mm),mod(jj,Nm));
+        watermark(ii,jj)=watermark_object(mod(ii,Mm)+1,mod(jj,Nm)+1);
     end
 end
 
