@@ -36,7 +36,7 @@ for ii = 1:Mw
 end
 
 % scale the recovered watermark
-%watermark=256*double(watermark);
+watermark=256*double(watermark);
 
 imwrite(watermark,'watermark.bmp');
 imwrite(watermark_original,'watermark_original.bmp');
