@@ -38,6 +38,9 @@ end
 % scale the recovered watermark
 watermark=256*double(watermark);
 
+imwrite(watermark,'watermark.bmp');
+imwrite(watermark_original,'watermark_original.bmp');
+
 % check the difference of the original watermark and the extracted one
 d=corr2(watermark_original,watermark);
 
