@@ -1,26 +1,34 @@
-%Project: 	Watermark Detector
+% Watermark Detector
 
 clear all;
 
-% read in original watermark file -> message
-file_name='bamboo.bmp';
-message=imread(file_name);
+watermark_name='images/baboon.bmp';
+watermarked_name='outputs/watermarked.bmp';
 
-% determine size of watermarked image
-Mw=size(watermarked_image,1);	%Height
-Nw=size(watermarked_image,2);	%Width
+% read in the images
+watermark_object=imread(watermark_name);
+watermarked_object=imread(watermarked_name);
 
-% use lsb of watermarked image to recover watermark
+% determine size of watermark image
+Mw=size(watermark_object,1);    %Height
+Nw=size(watermark_object,2);    %Width
+
+% use lsb of watermark image
 for ii = 1:Mw
     for jj = 1:Nw
-        watermark(ii,jj)=bitget(watermarked_image(ii,jj),8);
+        watermark_original(ii,jj)=bitget(watermark_object(ii,jj),8);
     end
 end
 
-% scale the recovered watermark
-watermark=256*double(watermark);
-imwrite(watermark,'orgiginal_watermark.bmp');
-% scale and display recovered watermark
-%figure(1)
-%imshow(watermark,[])
-%title('Recovered Watermark')
+% use lsb of watermarked image
+for ii = 1:Mw
+    for jj = 1:Nw
+        watermark_extracted(ii,jj)=bitget(watermarked_object(ii,jj),8);
+    end
+end
+
+
+% check the difference of the original watermark and the extracted one
+d=corr2(watermark_original,watermark_extracted);
+
+display(d);
