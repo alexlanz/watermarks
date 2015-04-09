@@ -22,7 +22,7 @@ end
 % create start white image
 image_object=true(Mw,Nw);
 
-image_object(1:256,1:256) = false;
+image_object(1:256,1:256) = 0.8;
 
 % output
 imwrite(image_object, 'outputs/white.bmp');
