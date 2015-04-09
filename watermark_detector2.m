@@ -23,10 +23,9 @@ end
 % use lsb of watermarked image
 for ii = 1:Mw
     for jj = 1:Nw
-        watermark_extracted(ii,jj)=bitget(watermarked_object(ii,jj),8);
+        watermark_extracted(ii,jj)=bitget(watermarked_object(ii,jj),1);
     end
 end
-
 
 % check the difference of the original watermark and the extracted one
 d=corr2(watermark_original,watermark_extracted);
