@@ -1,33 +1,34 @@
-% Watermark Detector
+function return_value = watermark_detector( image_object ) 
+ 
+    return_value = 0;
 
-clear all;
+    watermark_name='images/baboon.bmp';
+    watermark_threshold=0.8;
 
-watermark_name='images/baboon.bmp';
-watermarked_name='outputs/watermarked.bmp';
+    watermark_object=imread(watermark_name);
 
-% read in the images
-watermark_object=imread(watermark_name);
-watermarked_object=imread(watermarked_name);
+    Sh=size(watermark_object,1);
+    Sw=size(watermark_object,2);
 
-% determine size of watermark image
-Mw=size(watermark_object,1);    %Height
-Nw=size(watermark_object,2);    %Width
-
-% use msb of watermark image
-for ii = 1:Mw
-    for jj = 1:Nw
-        watermark_original(ii,jj)=bitget(watermark_object(ii,jj),8);
+    % use msb of watermark image
+    for ii = 1:Sh
+        for jj = 1:Sw
+            watermark_original(ii,jj)=bitget(watermark_object(ii,jj),8);
+        end
     end
-end
 
-% use lsb of watermarked image
-for ii = 1:Mw
-    for jj = 1:Nw
-        watermark_extracted(ii,jj)=bitget(watermarked_object(ii,jj),1);
+    % use lsb of watermarked image
+    for ii = 1:Sh
+        for jj = 1:Sw
+            watermark_extracted(ii,jj)=bitget(image_object(ii,jj),1);
+        end
     end
+
+    % check the difference of the original watermark and the extracted one
+    d=corr2(watermark_original,watermark_extracted);
+
+    if (d > watermark_threshold)
+        return_value = 1;
+    end
+ 
 end
-
-% check the difference of the original watermark and the extracted one
-d=corr2(watermark_original,watermark_extracted);
-
-display(d);
