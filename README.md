@@ -1,2 +1,0 @@
-# watermarks
-Multimedia Security Watermakrs
