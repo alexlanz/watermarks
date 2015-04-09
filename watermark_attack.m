@@ -27,5 +27,5 @@ imwrite(image_object, 'outputs/white.bmp');
 
 
 image_object=imread('outputs/white.bmp');
-
-display(image_object);
+image_object(1:256,1:256,:) = [1,0,0];
+imwrite(image_object, 'outputs/white.bmp');
