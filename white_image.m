@@ -15,7 +15,7 @@ Nw=size(image_object,2);    %Width
 % use msb of watermark image
 for ii = 1:Mw
     for jj = 1:Nw
-        image_object(ii,jj)=0;
+        image_object(ii,jj)=255;
     end
 end
 
