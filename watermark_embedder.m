@@ -14,14 +14,14 @@ watermark_object=imread(watermark_name);
 Mw=size(watermark_object,1);    %Height
 Nw=size(watermark_object,2);    %Width
 
-% use lsb of watermark image
+% use msb of watermark image
 for ii = 1:Mw
     for jj = 1:Nw
         watermark(ii,jj)=bitget(watermark_object(ii,jj),8);
     end
 end
 
-% set the LSB of image_object(ii,jj) to the value of the MSB of watermark(ii,jj)
+% set the lsb of image_object(ii,jj) to the value of the msb of watermark(ii,jj)
 watermarked_object=image_object;
 for ii = 1:Mw
     for jj = 1:Nw
