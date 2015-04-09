@@ -24,7 +24,7 @@ image_object=true(Mw,Nw);
 
 for ii = 1:100
     for jj = 1:100
-        image_object(ii,jj)=100;
+        image_object(ii,jj)=0.8;
     end
 end
 
