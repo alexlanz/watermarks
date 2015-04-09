@@ -28,5 +28,12 @@ for ii = 1:100
     end
 end
 
+% output
+for ii = 1:Mw
+    for jj = 1:Nw
+        display(image_object(ii,jj));
+    end
+end
+
 
 imwrite(image_object, 'outputs/white.bmp');
