@@ -22,5 +22,11 @@ end
 % create start white image
 image_object=true(512,512);
 
+for ii = 1:100
+    for jj = 1:100
+        image_object(ii,jj)=100;
+    end
+end
+
 
 imwrite(image_object, 'outputs/white.bmp');
