@@ -21,21 +21,21 @@ Mc=size(image_object,1);    %Height
 Nc=size(image_object,2);    %Width
 
 % determine the size of watermark_object object to embed
-Mm=size(watermark_object,1);            %Height
-Nm=size(watermark_object,2);            %Width
+%Mm=size(watermark_object,1);            %Height
+%Nm=size(watermark_object,2);            %Width
 
-% title the watermark_object object out to cover object size to generate watermark
-for ii = 1:Mc
-    for jj = 1:Nc
-        watermark(ii,jj)=bitget(watermark_object(ii,jj),8);
-    end
-end
+% tile the watermark_object object out to cover object size to generate watermark
+%for ii = 1:Mc
+%    for jj = 1:Nc
+%        watermark(ii,jj)=watermark_object(mod(ii,Mm)+1,mod(jj,Nm)+1);
+%    end
+%end
 
 % set the LSB of image_object(ii,jj) to the value of the MSB of watermark(ii,jj)
 watermarked_image=image_object;
 for ii = 1:Mc
     for jj = 1:Nc
-        watermarked_image(ii,jj)=bitset(watermarked_image(ii,jj),1,watermark(ii,jj));
+        watermarked_image(ii,jj)=bitset(watermarked_image(ii,jj),1,watermark_object(ii,jj));
     end
 end
 
