@@ -4,7 +4,7 @@ clear all;
 
 image_name='images/lena.bmp';
 watermarked_name='outputs/watermarked.bmp';
-output_name='output/diff.bmp';
+output_name='outputs/diff.bmp';
 
 % read in the images
 image_object=imread(image_name);
