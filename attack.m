@@ -15,7 +15,13 @@ Sw=size(attacked_object,2);
 
 % Attack
 while watermark_detector(attacked_object) == 1
-	attacked_object(randi([1 Sh],1), randi([1 Sw],1))=100;
+    x = randi([1 Sh],1);
+    y = randi([1 Sw],1);
+
+    display(x);
+    display(y);
+
+	attacked_object(x, y)=100;
 end
 
 imwrite(attacked_object,output_name);

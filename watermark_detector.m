@@ -3,7 +3,7 @@ function return_value = watermark_detector( image_object )
     return_value = 0;
 
     watermark_name='images/baboon.bmp';
-    watermark_threshold=0.8;
+    watermark_threshold=0.95;
 
     watermark_object=imread(watermark_name);
 
