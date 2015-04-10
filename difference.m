@@ -2,7 +2,7 @@
 
 clear all;
 
-image_name='images/lena50x50.png';
+image_name='images/lena128x128.png';
 watermarked_name='outputs/attacked.png';
 output_name='outputs/diff.png';
 

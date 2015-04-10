@@ -4,7 +4,7 @@ classdef WatermarkDetector
     end
     properties(Constant)
         threshold = 0.95;
-        watermark_name='images/baboon50x50.png';
+        watermark_name='images/baboon128x128.png';
     end
     methods
 

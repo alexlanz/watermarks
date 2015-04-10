@@ -2,8 +2,8 @@
 
 clear all; 
 
-image_name='images/lena50x50.png';
-watermark_name='images/baboon50x50.png';
+image_name='images/lena128x128.png';
+watermark_name='images/baboon128x128.png';
 output_name='outputs/watermarked.png';
 
 % read in the images
