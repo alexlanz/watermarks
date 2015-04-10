@@ -11,7 +11,7 @@ classdef WatermarkDetector
 
             if (obj.original != false)
                 r = obj.original;
-                return
+                return;
             end
 
             watermark_name='images/baboon.bmp';
