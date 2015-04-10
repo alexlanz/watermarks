@@ -37,7 +37,7 @@ for ii = 1:Sh
 
         for kk = 1:3
 
-            temp_object(ii, jj) = (pixel_color + (64 * kk)) mod 256;
+            temp_object(ii, jj) = mod((pixel_color + (64 * kk)), 256);
 
             if detector.detect(temp_object) == 1
                 tangent(ii, jj) = kk;
