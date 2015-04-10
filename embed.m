@@ -2,8 +2,8 @@
 
 clear all; 
 
-image_name='images/lena.bmp';
-watermark_name='images/baboon.bmp';
+image_name='images/lena50x50.bmp';
+watermark_name='images/baboon50x50.bmp';
 output_name='outputs/watermarked.bmp';
 
 % read in the images

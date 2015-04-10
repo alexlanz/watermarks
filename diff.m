@@ -2,7 +2,7 @@
 
 clear all;
 
-image_name='images/lena.bmp';
+image_name='images/lena50x50.bmp';
 watermarked_name='outputs/watermarked.bmp';
 output_name='outputs/diff.bmp';
 

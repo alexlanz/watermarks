@@ -4,6 +4,7 @@ classdef WatermarkDetector
     end
     properties(Constant)
         threshold = 0.95;
+        watermark_name='images/baboon50x50.bmp';
     end
     methods
 
@@ -14,8 +15,7 @@ classdef WatermarkDetector
                 return;
             end
 
-            watermark_name='images/baboon.bmp';
-            watermark_object=imread(watermark_name);
+            watermark_object=imread(obj.watermark_name);
 
             Sh=size(watermark_object,1);
             Sw=size(watermark_object,2);
