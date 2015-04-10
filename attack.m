@@ -25,8 +25,6 @@ while detector.detect(random_object) == 1
 
 end
 
-%imwrite(random_object,output_name);
-
 % Tangent
 for ii = 1:Sh
     for jj = 1:Sw
@@ -49,4 +47,21 @@ for ii = 1:Sh
     end
 end
 
-display(tangent);
+% Modifying watermarked image
+attacked_object=image_object;
+
+for ii = 1:Sh
+    for jj = 1:Sw
+
+        if tangent(ii, jj) ~= 0
+            attacked_object(ii, jj) = attacked_object(ii, jj) + 1;
+        end
+
+    end
+end
+
+if detector.detect(attacked_object) == 0
+    display('Attacked with success!');
+end
+
+imwrite(attacked_object, output_name);
