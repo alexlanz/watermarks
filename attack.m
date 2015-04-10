@@ -21,7 +21,7 @@ while detector.detect(random_object) == 1
 
     x = randi([1 Sh],1);
     y = randi([1 Sw],1);
-    random_object(x, y)=100;
+    random_object(x, y)=128;
 
 end
 
