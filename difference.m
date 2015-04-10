@@ -3,7 +3,7 @@
 clear all;
 
 image_name='images/lena50x50.png';
-watermarked_name='outputs/watermarked.png';
+watermarked_name='outputs/attacked.png';
 output_name='outputs/diff.png';
 
 % read in the images

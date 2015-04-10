@@ -60,6 +60,7 @@ for ii = 1:Sh
     end
 end
 
+% Final check
 if detector.detect(attacked_object) == 0
     display('Attacked with success!');
 end
