@@ -2,9 +2,9 @@
 
 clear all; 
 
-image_name='images/lena50x50.bmp';
-watermark_name='images/baboon50x50.bmp';
-output_name='outputs/watermarked.bmp';
+image_name='images/lena50x50.png';
+watermark_name='images/baboon50x50.png';
+output_name='outputs/watermarked.png';
 
 % read in the images
 image_object=imread(image_name);

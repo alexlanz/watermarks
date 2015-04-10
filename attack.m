@@ -3,8 +3,8 @@
 clear all;
 
 % Attack image
-image_name='outputs/watermarked.bmp';
-output_name='outputs/attacked.bmp';
+image_name='outputs/watermarked.png';
+output_name='outputs/attacked.png';
 
 image_object=imread(image_name);
 
