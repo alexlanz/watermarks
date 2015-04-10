@@ -49,7 +49,7 @@ classdef WatermarkDetector
             end
 
             % orignal watermark image
-            watermark_original=obj.getOriginal(obj);
+            watermark_original=obj.getOriginal();
 
             % check the difference of the original watermark and the extracted one
             d=corr2(watermark_original,watermark_extracted);
