@@ -18,14 +18,10 @@ detector = WatermarkDetector;
 random_object=image_object;
 
 while detector.detect(random_object) == 1
-    
-    for ii = 1:1000
 
-        x = randi([1 Sh],1);
-        y = randi([1 Sw],1);
-	    random_object(x, y)=100;
-
-    end
+    x = randi([1 Sh],1);
+    y = randi([1 Sw],1);
+    random_object(x, y)=100;
 
 end
 
