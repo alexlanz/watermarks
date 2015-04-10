@@ -9,7 +9,7 @@ classdef WatermarkDetector
 
         function r = getOriginal(obj)
 
-            if (obj.original != false)
+            if (obj.original ~= false)
                 r = obj.original;
                 return;
             end
