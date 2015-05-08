@@ -1,8 +1,10 @@
 require("MMSec")
 
 # Read original image
-data(lena)
-original <- lena
+#data(lena)
+lena <- load.png("images/lena-small.png")
+original <- as.matrix(lena) * 255
+
 
 # Size of original image
 dim <- dim(original)

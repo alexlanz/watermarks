@@ -1,17 +1,17 @@
-require("MMSec")
+detect <- function(image) {
 
-library(png)
+	# Load the watermark
+	watermark <- as.matrix(read.table("outputs/watermark", header=F))
 
-# Load the watermark
-watermark <- as.matrix(read.table("outputs/watermark", header=F))
+	# Pearson correlation
+	result <- cor.test(image, watermark, method="pearson")
 
-# Load the image
-image <- load.png("outputs/watermarked.png")
-image <- as.matrix(image) * 255
+	# Check
+	if (result$estimate >= 0.01) {
+		return (TRUE)
+	}
 
-# Pearson correlation
-print(dim(watermark))
-print(dim(image))
-result <- cor.test(image, watermark, method="pearson")
+	return (FALSE)
+	
+}
 
-print(result)
