@@ -4,7 +4,7 @@ detect <- function(image, watermark) {
 	result <- cor.test(image, watermark, method="pearson")
 
 	# Check
-	if (result$estimate >= 0.01) {
+	if (result$estimate >= 0.02) {
 		return (TRUE)
 	}
 
