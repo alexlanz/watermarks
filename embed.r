@@ -16,13 +16,18 @@ for (i in 1:heigth) {
 	watermark[i,] <- sample(0:255, width, replace=T)
 }
 
+# Store the watermark
+write.table(watermark, file="outputs/watermark", row.names=F, col.names=F)
+
+save.png(greymap(watermark), "outputs/watermark.png", overwrite=TRUE)
+
 # Apply λ to the watermark
 λ <- 1/51
 watermark <- λ * watermark
 watermark <- round(watermark)
 
 # Adding watermark to the original image
-watermarked <- matrix(0, nrow=heigth, ncol=width)
+watermarked <- original
 
 for (i in 1:heigth) {
 	for (j in 1:width) {
@@ -37,26 +42,6 @@ for (i in 1:heigth) {
 }
 
 # Save images
-pdf("outputs/original.pdf")
-plot(greymap(original))
-dev.off()
+save.png(greymap(original), "outputs/original.png", overwrite=TRUE)
+save.png(greymap(watermarked), "outputs/watermarked.png", overwrite=TRUE)
 
-png(filename="outputs/original.png")
-plot(greymap(original))
-dev.off()
-
-pdf("outputs/watermark.pdf")
-plot(greymap(watermark))
-dev.off()
-
-png(filename="outputs/watermark.png")
-plot(greymap(watermark))
-dev.off()
-
-pdf("outputs/watermarked.pdf")
-plot(greymap(watermarked))
-dev.off()
-
-png(filename="outputs/watermarked.png")
-plot(greymap(watermarked))
-dev.off()
