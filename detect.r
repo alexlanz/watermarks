@@ -1,7 +1,4 @@
-detect <- function(image) {
-
-	# Load the watermark
-	watermark <- as.matrix(read.table("outputs/watermark", header=F))
+detect <- function(image, watermark) {
 
 	# Pearson correlation
 	result <- cor.test(image, watermark, method="pearson")

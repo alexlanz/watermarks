@@ -1,16 +1,12 @@
 require("MMSec")
 source('detect.r')
 
+# Load the watermark
+watermark <- as.matrix(read.table("outputs/watermark", header=F))
 
 # Load the image
 image <- load.png("outputs/watermarked.png")
 image <- as.matrix(image) * 255
-
-#image <- load.png("images/Img8.png")
-#image <- as.matrix(image) * 255
-
-#data(lena)
-#image <- lena
 
 attacked <- image
 
@@ -21,7 +17,7 @@ width <- dim[2]
 
 # Set random pixels to grey value until images is not detected anymore
 repeat {
-	watermarked <- detect(attacked)
+	watermarked <- detect(attacked, watermark)
 
 	if (! watermarked) {
 		break
