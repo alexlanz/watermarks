@@ -1,8 +1,5 @@
 require("MMSec")
-source('detect.r')
-
-# Load the watermark
-watermark <- as.matrix(read.table("outputs/watermark", header=F))
+source('detect-fuzzy-area.r')
 
 # Load the image
 image <- load.png("outputs/watermarked.png")
@@ -20,7 +17,7 @@ neutralGrey = round(mean(image))
 
 # Set random pixels to grey value until the watermark is not detected anymore
 repeat {
-	watermarked <- detect(attacked, watermark)
+	watermarked <- detect(attacked)
 
 	if (! watermarked) {
 		break
@@ -37,7 +34,7 @@ save.png(greymap(attacked), "outputs/attacked-step1.png", overwrite=TRUE)
 # Find a tangent
 tangent <- matrix(0, nrow=heigth, ncol=width)
 
-getPixelOffset <- function(image, watermark, x, y) {
+getPixelOffset <- function(image, x, y) {
 
 	currentPixelValue = image[x,y]
 
@@ -49,7 +46,7 @@ getPixelOffset <- function(image, watermark, x, y) {
 		}
 
 		image[x,y] = changedPixelValue
-		watermarked <- detect(image, watermark)
+		watermarked <- detect(image)
 		
 		if (watermarked) {
 			image[x,y] = currentPixelValue
@@ -64,13 +61,12 @@ getPixelOffset <- function(image, watermark, x, y) {
 for (x in 1:heigth) {
 	for (y in 1:width) {
 
-		tangent[x,y] = getPixelOffset(attacked, watermark, x, y)
+		tangent[x,y] = getPixelOffset(attacked, x, y)
 
 	}
 }
 
-#print(tangent)
-
+# Attack image
 scaledVector <- tangent / 64
 
 attacked <- image
@@ -93,7 +89,7 @@ for (x in 1:heigth) {
 	}
 }
 
-result = detect(attacked, watermark)
+result = detect(attacked)
 
 print(result)
 
